@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>The Sofer Game</title>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script src="jquery-2.0.3.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="jquery.rotateplugin.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		<h1>The Sofer Game</h1>
+		<div id="right">
+			<div id="open-close-typer">click to <span>open</span><span style="display:none">close</span> Hebrew keyboard help (<a href="http://typeint.com/typer" target="_blank">TypeR</a>)</div>
+			<div id="music-control"><audio id="music" style="display:none" loop="loop" preload="auto"><source src="sounds/ShmaYisroel.wav" /><source src="sounds/ShmaYisroel.mp3" /></audio><span>play</span><span style="display:none">pause</span></div>
+		</div>
+		<div id="points"><span></span> points</div>
+		<div id="time"></div>
+		<div id="world-container">
+			<canvas id="world" width="5000" height="5000">Sorry, but it appears that your browser doesn't support the required technologies. Please update your browser. If you're using Internet Explorer, it won't work anyways, so I highly recommend you switch to <a href="getfirefox.com">Firefox</a> or <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>.</canvas>
+			<div id="introduction">
+				<div style="position:relative">
+					<img src="cover.png" alt="The Sofer Game" style="margin:0" />
+					<img src="start.png" alt="start" class="next" style="position: absolute; top: 50px; right: 150px;" />
+				</div>
+				<div>
+					<p dir="rtl" style="font-size:20pt;">&#x201d;וּכְתַבְתָּ֛ם עַל־מְזֻז֥וֹת בֵּיתֶ֖ךָ וּבִשְׁעָרֶֽיךָ׃&#x201c; <span style="font-size:12pt">(<a href="http://www.mechon-mamre.org/i/t/t0506.htm#9">דברים ו:ט</a>)</span>
+					</p>
+					<p>This פסוק is the source for the מצוה of putting up מזוזות. It appears twice &ndash; once in דברים פרק ו; once in פרק יא. Both occurrences are said as part of the daily שמע. And, as it happens, (100% not coincidental) those two paragraphs are also the ones put inside the מזוזה.</p>
+					<img src="klaf.gif" alt="inside of a מזוזה" style="width:300px;border:1px solid" />
+					<p style="font-size:smaller">The קלף (parchment) with the text of the מזוזה. (Note that the first ה in the name of Hashem here is replaced with a ד.) Image courtesy of <a href="http://www.beingjewish.com/mitzvos/mezuzah.html">beingjewish.com</a>.</p>
+					<img src="next.png" alt="next" class="next" />
+				</div>
+				<div>
+					<p>In <b>The Sofer Game</b>, you get to pretend to be a סופר and write a מזוזה!</p>
+					<p>There are 15 mazes, corresponding to the 15 פסוקים on the קלף. To get through each maze, you must pick the correct words at intersections. To pick a word, press the first letter of that word on your keyboard. For example, for the first word, שמע, you'd press ש (a).</p>
+					<p>The keyboard language can be standard Hebrew or US English. If you need help with the Hebrew keyboard, check out <a href="http://typeint.com/typer">TypeR</a>, a Hebrew typing program i created. Even if you don't need it, please check it out. (And spread the word!). I've provided a mini-keyboard help in the style of TypeR in the game, as well.</p>
+					<br/>
+					<p>Each time you correctly pick a word, you earn 50 points. If you pick the wrong one, you lose 50 points. It's that simple. At the end of the פסוק, you get a hundred-point bonus. If you completed the maze in less than 45 seconds, you get points corresponding to how quick you were. The exact formula is ((45 - time) * 15), which can provide a lot of points, so i recommend trying to be as fast as possible. If that isn't enough bonus points, if you never got a wrong answer, you get another 200!</p>
+					<p>Well, i won't keep you waiting any longer!</p>
+					<img src="start.png" alt="start" id="start" />
+				</div>
+				<div class="info">
+					<h2>The מצווה of מזוזה</h2>
+					<p>The מצווה of מזוזה is a מצווה דאורייתא (from the Torah). Hashem says to place a reminder of His מצוות on our doorposts. We should have a מזוזה at the door of every room fit for human use (excluding non-walk-in closets and the like), that is not designated for unclean use (which is why we don’t put one by a bathroom). It should be noted that notes to follow are certainly not an exhaustive compilation of the הלכות of מזוזה.</p>
+				</div>
+				<div class="info">
+					<h2>Which rooms require a מזוזה</h2>
+					<p>Rooms in both private and communal places require מזוזות. Rooms that are used exclusively for holy purposes (such as the sanctuary in a shul) don’t require a מזוזה. A בית מדרש however, should have one out of ספק. A ברבה is not said. Most shuls nowadays do have מזוזות, because they often incorporate a lobby, social hall, rooms for other purposes, and even offices. Small rooms (less than 16 square אמות) don’t require a מזוזה. Neither do emergency exits. Doors that are rarely used <i>do</i> require one, however, if it doesn’t have the status of emergency exit.</p>
+				</div>
+				<div class="info">
+					<h2>When the requirement sets in</h2>
+					<p>The requirement to put up מזוזות starts at different times in Israel, and out. It also depends on whether you are renting or buying. In Israel, or when buying outside of Israel, you should always put up מזוזות as soon as possible. When renting outside of Israel, you have a 30 day grace period before the requirement sets in, but it’s better to put them up immediately.</p>
+				</div>
+				<div class="info">
+					<h2>When Moving</h2>
+					<p>What do you do with the מזוזות when moving to a new house? If you know (or expect) that the next tenant or buyer is Jewish, you have to leave מזוזות up. You certainly don’t need to leave expensive cases, though. That’s why, when we bought our house in Israel a couple months ago, it came with cheap מזוזות already up. But since we have our own, we returned them to the sellers. If the next tenant or buyer is not Jewish, or if there is a serious concern that they will be ruined, you don’t need to leave them up.</p>
+				</div>
+				<div class="info">
+					<h2>Positioning</h2>
+					<p>The מזוזה is placed on the right-hand side of the doorway when entering the room. For most doors, it is placed at the bottom of the upper third. So, for a 9’ doorway, the bottom of the מזוזה is 6’ from the ground. If the doorway is very high, it should be placed around shoulder height of the average man. Remind you of anything from the פסוק we just wrote? How about תפילין, which are placed on the upper arm. As for whether to place it slanted or straight - Ashkenazim place it slanted if there is space (in my house it’s usually a maximum of 35°), while Sephardim always place it straight.</p>
+				</div>
+				<div class="info">
+					<h2>The “write” way</h2>
+					<p>The מזוזה scroll (the קלף) <b>must</b> be written by a<span dir="rtl"> סופר סת”ם (ספר תורה, תפילין, מזוזה) </span>who is a ירא שמים and knows all of the complicated הלכות.</p>
+					<p>“וּכְתַבְתָּם” in this פסוק could be read as one word, meaning “and you will write”, or two words (וכתב תם), meaning “a perfect script”. Each letter is a work of art. Each letter and word must be completely legible. The מזוזה (and תפילין) <b>must</b> be written in order (כסדרן). A sofer is allowed to erase, if he forgets something, but cannot erase the Name of Hashem. A ספר תורה does not need to be written in order, however, which is why, when a sofer came to visit a place where i was, he let people write a letter in their name, out of order.</p>
+				</div>
+				<div class="info">
+					<h2>Kissing the מזוזה</h2>
+					<p>Many people have a custom to kiss the מזוזה (usually by touching it, then kissing their fingertips) when they pass it. This is a commendable practice, as long as you have the proper frame of mind. You don’t kiss the מזוזה for good luck, or as a charm. It is a reminder and public declaration that Hashem is watching over the house. When touching it, think about the contents, and live a better life!</p>
+				</div>
+				<div class="info">
+					<h2>Wrapping it up</h2>
+					<p>Don’t be confused by the title – we’re not done writing! 7 more levels. This is about how to roll the scroll before putting it in the case. Fold (more like roll up) the parchment, left to right, so that “שמע”, the first word (on the right before it is rolled), is on the top, with the writing inside. “ש-ד-י”, which is written on the back, should be facing up, and towards the front of the מזוזה case. In other words, if you can see “ש-ד-י” looking at the back, the scroll is in wrong. You can tape it in place if needed.</p>
+				</div>
+				<div class="info">
+					<h2>Who and when?</h2>
+					<p>מזוזות can be put up at any time of day. They cannot be put up on שבת or יום טוב, because of the מלאכה of בונה. Any Jew over Bar/Bat Mitzvah can put up מזוזות. Of course, it is preferable that the בעל הבית do so.</p>
+				</div>
+				<div class="info">
+					<h2>Beware the Sofer</h2>
+					<p>It is very important to use a reputable sofer. As mentioned after level 6, the sofer must be a ירא שמים and know the הלכות. There are certification programs for sofrim, so it’s best to use someone certified. It’s also best to use computer-scanned texts. Humans are susceptible to error, after all, and slight mistakes can be overlooked. Software can ensure that all letters are there and properly formed. It can also detect duplicates, such as if a sofer is photocopying, as it is humanly impossible to write something exactly the same way - dot for dot - multiple times. Sometimes some are almost duplicates, where the sofer adds letters later, which is אסור. No human can remember dot for dot every single klaf presented to them, but computer scanning can.</p>
+					<p>Hey. I’m a computer programmer. Of course i’ll advocate using computers.</p>
+				</div>
+				<div class="info">
+					<h2>Don’t turn מזוזות into עבודה זרה</h2>
+					<p>Yes, it is actually possible to turn מזוזות into עבודה זרה. The מזוזה is a reminder that Hashem is watching over us, and that we need to keep His מצוות. The Rambam (Maimonides) says in <a href="http://www.mechon-mamre.org/i/1411.htm#17">הלכות עבודה זרה פרק י”א</a> (in the משנה תורה):</p>
+					<blockquote dir="rtl">ודברים האלו--כולן, דברי שקר וכזב הן; והן שהטעו בהן עובדי עבודה זרה הקדמונים לגויי הארצות, כדי שיינהו אחריהן.  ואין ראוי לישראל, שהן חכמים מחוכמים, להימשך בהבלים אלו, ולא להעלות על הלב שיש בהן תעלה</blockquote>
+					<blockquote>These things [magic and charms] &ndash; all of them, are lies and falsehood, and they are what caused the early idol worshipers among the nations to sin. And it is not proper for Israel, who is smart and enlightened, to follow these nothingness, or to even think that they have truth to them. <small>(My own translation)</small></blockquote>
+					<p>If we start thinking that the מזוזה is a magic charm, we have a very big problem indeed.</p>
+				</div>
+				<div class="info">
+					<h2>The ברכה when putting up a מזוזה</h2>
+					<p dir="rtl" style="font-size:larger">בָּרוּךְ אַתָּה ה‘ אֶ-לֹֹהֵינוּ מֶלֶךְ הָעוֹֹלָם אֲשֶׁר קִדְּשָׁנוּ ְּבְּמִצְוֹֹתָיו וְצִוָּנוּ לִקְבֹֹּעַ מְזוּזָה</p>
+					<p>Even though it is in the singular (מזוזה as opposed to מזוזות), the same ברכה is said no matter how many מזוזות you are putting up.</p>
+				</div>
+				<div class="info">
+					<h2>Centering</h2>
+					<p>No matter how natural it may seem, the מזוזה is not supposed to be horizontally centered in a large doorway. It is permissible, just not the preferred way. Take a look at the entrance to my house:</p>
+					<img src="front-door.JPG" />
+				</div>
+				<div class="info">
+					<h2>Now, a joke</h2>
+					<p>Courtesy of <a href="http://www.aish.com/j/j/51477127.html">Aish.com "JEWLARIOUS"</a></p>
+					<p>A Chinese businessman operating out of south China suffers a string of robberies. He calls up his associate in Israel and asks him if he ever had a problem with robberies.<br/>"Not really," replies the Israeli. "We have this thing we put on the doorpost called a mezuzah and it protects our homes from harm."<br/>"Send me one," begs the Chinese guy, "I'm desperate for a solution."<br/>A few weeks later, the Israeli gets his mezuzah back in the mail. He calls up his Chinese friend. "Nu," he asks him. "The mezuzah didn't work? You were robbed again?"<br/>"No, no," the Chinese guy assures him, "no robberies."<br/>"So why did you send it back?"<br/>The Chinese guy sighs. "I dunno," he says. "Ever since I hung it up, the doorbell doesn't stop ringing. Each time a different man standing there, saying the same thing: 'Tzedakah please!'"</p>
+				</div>
+				<div class="info">
+					<h2>An inspiring story (and it’s true, too)</h2>
+					<p>Also from <a href="http://www.aish.com/tp/b/app/48961061.html">Aish.com</a></p>
+					<p>A couple bought an apartment in Israel from an anti-religious man. In this context, a comment he made was very strange: he assured them that all of the מזוזות were completely kosher. He told them the following story: Many years before, his daughter was born with a serious heart defect. After learning that she didn’t have long to live, he looked everywhere, desperate for a solution. An old Yemenite man advised him to immediately buy and put up מזוזות for his house. He did so, and a miracle occurred - his daughter’s heart defect completely disappeared.</p>
+					<p>The reason for the man’s advice comes from the פסוק we just read, which talks about long life for one’s children. It comes right after the מצווה of מזוזה.</p>
+					<p>With this in mind, let’s do the best we can with this מצווה. It’s one we all can do!</p>
+				</div>
+				<div id="endGame">
+					<h2>Thank You For Playing</h2>
+					<p>I hope you enjoyed playing this game as much as i enjoyed writing it. I hope you also learned something from it.</p>
+					<p>Now, for credits:</p>
+					<ul>
+						<li><a href="http://www.ahavat-israel.com/torat/mezuza">Ahavat-Israel.com</a> (content)</li>
+						<li><a href="http://www.chicagomitzvahcampaign.com/mitzvah_laws_mezuzah.html">Chicago Mitzvah Campaign</a> (content)</li>
+						<li><a href="http://www.aish.com/">Aish.com</a> (content)</li>
+						<li><a href="http://www.beingjewish.com/mitzvos/mezuzah.html">BeingJewish.com</a> (content and image)</li>
+						<li><a href="http://openclipart.org/detail/22158/old_parchment_texture-by-chrisdesign-22158">OpenClipart</a> (parchment background)</li>
+						<li><a href="http://newthoughtkabbalah.com/mezzuzahs.htm">Mezuzah covers on cover image</a></li>
+						<li><a href="http://mechon-mamre.org/">Mechon Mamre</a> (Hebrew text, including of the Sh'ma and from the Rambam)</li>
+						<li><a href="http://www.menuchathegroup.com/">Menucha</a> (song - Sh'ma Yisrael from Menucha 2)</li>
+						<li><a href="http://bible.ort.org/">Navigating the Bible II</a> (reading of the psukim)</li>
+						<li><a href="http://culmus.sourceforge.net/">Culmus</a> (Sofer font)</li>
+					</ul>
+					<img src="next.png" alt="next" id="mitzvahDayBtn" />
+				</div>
+				<div id="mitzvahDay">
+					<h2>My Mitzvah Day Idea</h2>
+					<p>The mitzvah that i chose is mezuzah, and i decided to focus on tzedek or gemilut chassadim (call it what you want). I suggest that in your community, you help out needy families who cannot buy good mezuzot. The sofer is often the most expensive (it should be - you don't really need cases that expensive!), so you can help pay for that.</p>
+					<img src="next.png" alt="next" id="scorePageBtn" />
+				</div>
+				<div id="scorePage">
+					<h2>Points: <span></span></h2>
+					<p>Good job! If you want to add your score to the database, fill in your name (or nickname). Clicking next will automatically add it.</p>
+					<input type="text" id="highscoresName" /><br/>
+					<img src="next.png" alt="next" id="highscoresBtn" />
+				</div>
+				<div id="highscoresPage">
+					<h2>High Scores</h2>
+					<h3>That's it! Thanks for playing!</h3>
+					<h4><a href="">Play Again!</a></h4>
+					<table id="highscores"><tr><td><img src="ajax-loader.gif" alt="Loading..." /></td></tr></table>
+					<p><a href="/contact">Please share your thoughts with me!</a></p>
+				</div>
+			</div>
+		</div>
+		<p style="text-align:center"><b>Warning:</b> This game works best in <a href="getfirefox.com">Firefox</a> or <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>! If you are using Internet Explorer, it <i>will not work</i>. Note: This is not my fault; it's Microsoft's. They don't follow the standards.</p>
+		<div id="typer">
+			<div id="heb">אבגדהוזחטיכלמנסעפצקרשת</div>
+			<div id="eng">tcdsvuzjyhfknbxgpmera,</div>
+		</div>
+	</body>
+</html>
