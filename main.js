@@ -76,6 +76,9 @@ $(document).ready(function(){
 		old.hide('fast');
 		old.siblings(':nth-child('+(old.index()+2)+')').show('fast');
 		$('#introduction').css('padding',5);
+		if ($(this).attr('src')=="next.png") {
+			setTimeout(function(){$('#start').removeClass('disabled')},5000);
+		}
 	});
 	$('#start').click(function(){
 		$('#introduction').hide('fast');

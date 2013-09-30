@@ -73,6 +73,9 @@ h1 {
 
 *[dir="rtl"]{font-family: "Sofer";}
 img[src="start.png"],img[src="next.png"] {cursor: pointer}
+img.disabled {
+	opacity: 0.5;
+	cursor: auto;}
 
 #highscores {width: 100%}
 tr.myScore {font-weight: bold}
