@@ -1,0 +1,81 @@
+body {background: url('parchment-texture.png') #fadea7;}
+h1 {
+	text-align: center;
+	margin: 15px}
+#world-container {
+	width: 750px;
+	height: auto;
+	overflow: hidden;
+	padding: 0;
+	margin: auto;
+	border: 1px solid gray;}
+#world {
+	margin: 0;
+	position: relative;
+	display: none}
+
+#introduction {
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px}
+#introduction>div {
+	display: none;
+	overflow: auto}
+#introduction>div:first-child {display: block}
+#introduction>div>* {margin: 8px 0}
+
+#points, #time, #open-close-typer, #music-control {
+	float: left;
+	clear: left;
+	margin: 10px;
+	font: bold 20pt serif;
+	width: 250px;
+	display: none;}
+#right {float: right;}
+@font-face {
+  font-family: 'Sofer';
+  src: local("Stam Ashkenaz CLM"),
+  local("Stam Ashkenaz"),
+  local("Stam Sefarad CLM"),
+  local("Stam Sefarad"),
+  url("fonts/StamAshkenazCLM.ttf"),
+  url("fonts/StamAshkenazCLM.woff");
+  font-weight: bold;
+}
+
+#typer {
+	width: 340px;
+	margin: 0 auto;
+	padding: 3px;
+	border: 1px solid gray;
+	border-radius:14px;
+	background-color: #7F7F7F;
+	height: 125px;
+	text-align: center;
+	font: normal 90% "Times New Roman",Times;
+	display: none;
+	position: absolute;
+	top: 100px;
+	left: 40%;
+	opacity: 0.75}
+#typer span {
+	display: block;
+	float: right;
+	margin: 2px;
+	height: 25px;
+	width: 50px;
+	background-color: #373737;
+	border: 1px solid #0D0D0D;
+	border-radius: 2.5px;
+	text-align: center;
+	color: #FEFEFE;
+	cursor: pointer;}
+
+*[dir="rtl"]{font-family: "Sofer";}
+img[src="start.png"],img[src="next.png"] {cursor: pointer}
+img.disabled {
+	opacity: 0.5;
+	cursor: auto;}
+
+#highscores {width: 100%}
+tr.myScore {font-weight: bold}
