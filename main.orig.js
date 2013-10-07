@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var
 	points = 0,
 	outside = "#09099C",
@@ -10,8 +12,6 @@ var
 	perekTime = 0,
 	firstPerekPoints = 0;
 
-$(document).ready(function(){
-	
 	// set up TypeR
 	$.each($('#heb').text().split(''),function(i,l){
 		$('#typer').append('<span>'+$('#eng').text().split('')[i]+'-'+l+'</span>');
@@ -87,7 +87,6 @@ $(document).ready(function(){
 		$('#points span').text(points);
 		lvl1();
 	});
-});
 
 function updatePoints(change) {
 	points += change;
@@ -5191,3 +5190,4 @@ function finishLvl(lvl,origPoints,elapsedTime,perfection) {
 		firstPerekPoints = points;
 	});
 }//*/
+});
